@@ -1,0 +1,7 @@
+{
+    "appId": "de.fivethree.capacitorrxjs",
+    "appName": "capacitor-rxjs",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "www"
+}

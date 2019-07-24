@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>browser</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  {{browser.$finished | async | json }}
+  {{browser.$pageLoaded | async | json }}
+
+  <ion-button (click)="openURL()">
+    open URL
+  </ion-button>
+
+</ion-content>

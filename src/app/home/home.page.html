@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="theme$ | async as theme" (click)="onChangeThemeClick()">
+        <ion-icon slot="icon-only" slot="start" [name]="theme === 'light' ? 'moon' : 'sunny'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  Yolo
+
+  <ion-label>
+    <h1 translate>hello</h1>
+  </ion-label>
+
+  <ion-button (click)="onChangeLanguageClick()">
+    Change Language
+  </ion-button>
+</ion-content>

@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  {{(appState.$appStateChanged | async) | json }}
+  {{(appState.$backButton | async) | json }}
+
+
+</ion-content>
