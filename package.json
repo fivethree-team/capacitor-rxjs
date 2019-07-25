@@ -16,9 +16,10 @@
     "android": "node scripts run --platform android",
     "electron": "node scripts run --platform electron",
     "ios": "node scripts run --platform ios",
-    "publish": "npm publish dist/@fivethree/capacitor-rxjs",
-    "rocket": "npm run build:prod && cp README.md dist/@fivethree/capacitor-rxjs && npm run publish",
-    "version": "conventional-changelog -p angular -i ./CHANGELOG.md -s && git add CHANGELOG.md"
+    "publish": "npm publish dist/capacitor-rxjs",
+    "rocket": "npm run build:prod && cp README.md dist/capacitor-rxjs && npm run publish",
+    "version": "conventional-changelog -p angular -i ./CHANGELOG.md -s && git add CHANGELOG.md",
+    "build:prod": "ng build capacitor-rxjs --prod"
   },
   "private": true,
   "dependencies": {
