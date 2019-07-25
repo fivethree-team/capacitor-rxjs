@@ -7,6 +7,8 @@
 Use **`npm i @fivethree/capacitor-rxjs`** to install the Library.
 Then you can use the provided services to get a hold of all the capacitor event Observables.
 
+[Examples](https://github.com/fivethree-team/capacitor-rxjs/tree/master/src/app)
+
 ## Features
 
 * Subscribe to several capacitor plugin events
