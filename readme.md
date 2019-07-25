@@ -1,5 +1,5 @@
 # capacitor-rxjs ![npm: version](https://flat.badgen.net/npm/v/@fivethree/capacitor-rxjs)
-🤩 Small library that wraps the capacitor core with rxjs and exposes some useful Observables
+🤩 Small library that wraps capacitor core events with rxjs and exposes some useful Observables
 ---
 ## Usage
 
