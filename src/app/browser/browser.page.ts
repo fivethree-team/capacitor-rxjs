@@ -12,7 +12,10 @@ const { Browser } = Plugins;
 export class BrowserPage implements OnInit {
   constructor(public browser: BrowserService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.browser.$finished.subscribe(console.log);
+    this.browser.$pageLoaded.subscribe(console.log);
+  }
 
   async openURL() {
     try {

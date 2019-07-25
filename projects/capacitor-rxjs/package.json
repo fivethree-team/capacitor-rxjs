@@ -1,8 +1,10 @@
 {
   "name": "@fivethree/capacitor-rxjs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
+    "@angular/core": "^7.2.0",
+    "rxjs": ">=6.4.0",
+    "@capacitor/core": ">=1.0.0"
   }
 }

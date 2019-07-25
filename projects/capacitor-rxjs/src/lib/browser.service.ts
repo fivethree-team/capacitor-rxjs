@@ -1,29 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Plugins } from '@capacitor/core';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
+import { PluginListenerHandle } from '@capacitor/core';
 
 const { Browser } = Plugins;
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrowserService {
-  private $browserFinishedSubject = new Subject();
+export class BrowserService implements OnDestroy {
+  private $browserFinishedSubject = new BehaviorSubject(null);
   $finished = this.$browserFinishedSubject.asObservable();
-  private $browserPageLoaded = new Subject();
+  private $browserPageLoaded = new BehaviorSubject(null);
   $pageLoaded = this.$browserPageLoaded.asObservable();
-
+  private handles: PluginListenerHandle[] = [];
   constructor() {
     this.setupListeners();
   }
 
+  ngOnDestroy(): void {
+    this.handles.forEach(handle => handle.remove());
+  }
+
   setupListeners() {
-    Browser.addListener('browserFinished', info => {
+    const finished = Browser.addListener('browserFinished', info => {
       this.$browserFinishedSubject.next(info);
     });
 
-    Browser.addListener('browserPageLoaded', info => {
+    const pageLoaded = Browser.addListener('browserPageLoaded', info => {
       this.$browserPageLoaded.next(info);
     });
+
+    this.handles.push(finished, pageLoaded);
   }
 }

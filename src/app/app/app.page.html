@@ -6,8 +6,7 @@
 
 <ion-content>
 
-  {{(appState.$appStateChanged | async) | json }}
-  {{(appState.$backButton | async) | json }}
+  {{(appState.$changed | async) | json }}
 
 
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NetworkService } from '@fivethree/capacitor-rxjs';
 
 @Component({
@@ -6,8 +6,10 @@ import { NetworkService } from '@fivethree/capacitor-rxjs';
   templateUrl: './network.page.html',
   styleUrls: ['./network.page.scss']
 })
-export class NetworkPage {
-  constructor(public network: NetworkService) {
-    network.$networkStatusChange.subscribe(res => console.log(res));
+export class NetworkPage implements OnInit {
+  constructor(public network: NetworkService) {}
+
+  ngOnInit(): void {
+    this.network.$status.subscribe(console.log);
   }
 }

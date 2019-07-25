@@ -1,3 +1,4 @@
+import { KeyboardService } from './../../../projects/capacitor-rxjs/src/lib/keyboard.service';
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 
@@ -9,24 +10,17 @@ const { Keyboard } = Plugins;
   styleUrls: ['./keyboard.page.scss']
 })
 export class KeyboardPage implements OnInit {
-  constructor() {}
+  constructor(public keyboard: KeyboardService) {}
 
   ngOnInit() {
-    window.addEventListener('keyboardWillShow', e => {
-      console.log('keyboard will show with height', e);
-    });
-
-    window.addEventListener('keyboardDidShow', e => {
-      console.log('keyboard did show with height', e);
-    });
-
-    window.addEventListener('keyboardWillHide', () => {
-      console.log('keyboard will hide');
-    });
-
-    window.addEventListener('keyboardDidHide', () => {
-      console.log('keyboard did hide');
-    });
+    this.keyboard.$didHide.subscribe(() => console.log('keyboard did hide'));
+    this.keyboard.$didShow.subscribe(ev =>
+      console.log('keyboard did show with height', ev)
+    );
+    this.keyboard.$willHide.subscribe(() => console.log('keyboard will hide'));
+    this.keyboard.$willShow.subscribe(ev =>
+      console.log('keyboard will show with height', ev)
+    );
   }
 
   async show() {

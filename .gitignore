@@ -34,6 +34,9 @@ screenshots/
 Thumbs.db
 UserInterfaceState.xcuserstate
 
+dist/
+
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json

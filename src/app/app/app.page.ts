@@ -9,5 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppPage implements OnInit {
   constructor(public appState: AppStateService) {}
 
-  async ngOnInit() {}
+  async ngOnInit() {
+    this.appState.$changed.subscribe(console.log);
+  }
 }

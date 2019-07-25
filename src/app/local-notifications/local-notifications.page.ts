@@ -1,3 +1,4 @@
+import { LocalNotificationsService } from '@fivethree/capacitor-rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
 const { LocalNotifications } = Plugins;
@@ -8,9 +9,12 @@ const { LocalNotifications } = Plugins;
   styleUrls: ['./local-notifications.page.scss']
 })
 export class LocalNotificationsPage implements OnInit {
-  constructor() {}
+  constructor(public notification: LocalNotificationsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.notification.$actionPerformed.subscribe(console.log);
+    this.notification.$received.subscribe(console.log);
+  }
 
   async schedule() {
     try {
